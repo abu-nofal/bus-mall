@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>bus-mall</title>
 </head>
 <body>
     <header>
+        <div class="continer">
+        <h1>BusMall</h1>
         <nav>
             <ul>
                 <li><a href="#">mall Town</a></li>
@@ -17,8 +20,21 @@
                 <li><a href="#">Become a mall</a></li>
             </ul>
         </nav>
+    </div>
     </header>
     <main>
+        <div class="continer">
+        <form id="form-conter"> 
+            <fieldset>
+                
+            
+                <label for="MaxCont"> hello, add the number of  iterations if you want <br>
+                if you didnt add any value it will iterations 25 time  </label><br>
+                <input type="number" id="MaxCont" name="MaxCont">
+                <input type="submit" value="save" >
+           
+            </fieldset>
+        </form>
         <!-- code here -->
         <div id="images-div">
             <img id="left-image" src="" alt="" width="200px"/ >
@@ -30,19 +46,18 @@
 
             <button id="btn"> show result</button>
         </div>
+
+
+        <div>
+            <canvas id="myChart" width="20px" height="10px"></canvas>
+        </div>
+          
+    </div>
     </main>
     <footer>
-        <div>
-            <p>Footer</p>
-        </div>
+        
     </footer>
-
-
-
-
-
-
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
