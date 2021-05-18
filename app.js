@@ -112,7 +112,7 @@ form.addEventListener('submit',action);
    RenderThreeImage()
 
  }
-
+ getItems ();
 
 // --------------------------------------rander mall image-----------------
 
@@ -161,7 +161,7 @@ function RenderThreeImage() {
 } 
 
 
-RenderThreeImage();
+// RenderThreeImage();
 
 
 
@@ -191,7 +191,7 @@ function clicker(event) {
   } else {
     
     divContiner.removeEventListener("click", clicker);
-    setItems ();
+    
     for (let i = 0; i < allPhoto.length; i++) {
         productVotes.push(allPhoto[i].votes);
         productShown.push(allPhoto[i].imgshown);}
@@ -201,14 +201,14 @@ function clicker(event) {
     btn.addEventListener("click", viewResult);
     function viewResult() {
       let liElement;
-        for (let i = 0; i < allPhoto.length; i++) {
+       for (let i = 0; i < allPhoto.length; i++) {
         liElement = document.createElement('li');
         list.appendChild(liElement);
         liElement.textContent = `${allPhoto[i].name} has ${allPhoto[i].votes}  votes  and has ${allPhoto[i].imgshown} time shown `;
     }
         
             chirtShown ();
-            
+            setItems ();
       }
     
       
@@ -253,4 +253,3 @@ function chirtShown() {
 // console.log(productVotes);
 
 
-getItems ();
