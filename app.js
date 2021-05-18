@@ -38,6 +38,7 @@ function mallImg(name, path) {
   allPhoto.push(this);
   productName.push(this.name);
    
+  
 }
 
 new mallImg("bag", "images/bag.jpg");
@@ -85,21 +86,44 @@ form.addEventListener('submit',action);
      let parg =document.createElement('p');
      form.appendChild(parg);
      parg.textContent=`your value was saved and its equal ${InputMaxCont}`
+
+     document.getElementById('form-conter').reset();
      
     
     
+ }
+ // ----------------------------------  setting the item ---------
+ function setItems (){
+  //  localStorage.setItem('photo',allPhoto);
+  //  console.log(localStorage.setItem('photo',allPhoto));
+   let storeData = JSON.stringify(allPhoto);
+   localStorage.setItem('photo',storeData);
+
+ }
+
+ // -------------------------------- getting the item ------------
+ function getItems (){
+   let stringObject =localStorage.getItem('photo');
+   let objectSt =JSON.parse(stringObject);
+   if(objectSt!==null){
+    allPhoto=objectSt;
+   }
+  
+   RenderThreeImage()
+
  }
 
 
 // --------------------------------------rander mall image-----------------
 
 
-   leftImage = RandomeleIndex();
-   CenterImage = RandomeleIndex();
-   RightImage = RandomeleIndex();
+leftImage = RandomeleIndex();
+CenterImage = RandomeleIndex();
+RightImage = RandomeleIndex();
 
 
 function RenderThreeImage() {
+  
   while (
     leftImage === RightImage ||
     leftImage === CenterImage ||
@@ -167,16 +191,21 @@ function clicker(event) {
   } else {
     
     divContiner.removeEventListener("click", clicker);
-
+    setItems ();
     for (let i = 0; i < allPhoto.length; i++) {
         productVotes.push(allPhoto[i].votes);
         productShown.push(allPhoto[i].imgshown);}
 
     let list = document.getElementById("result");
     let btn = document.getElementById("btn");
-    btn.addEventListener("click", sskla);
-    function sskla() {
-
+    btn.addEventListener("click", viewResult);
+    function viewResult() {
+      let liElement;
+        for (let i = 0; i < allPhoto.length; i++) {
+        liElement = document.createElement('li');
+        list.appendChild(liElement);
+        liElement.textContent = `${allPhoto[i].name} has ${allPhoto[i].votes}  votes  and has ${allPhoto[i].imgshown} time shown `;
+    }
         
             chirtShown ();
             
@@ -224,3 +253,4 @@ function chirtShown() {
 // console.log(productVotes);
 
 
+getItems ();

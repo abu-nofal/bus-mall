@@ -51,3 +51,7 @@ header nav ul li a {
     height: 200px;
     margin-top: 20px;
 }
+
+#result li {
+    text-align: left;
+}
